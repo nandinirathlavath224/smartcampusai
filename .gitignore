@@ -1,0 +1,21 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment directories
+venv/
+ENV/
+env/
+.venv/
+
+# Environment files and credentials
+.env
+.streamlit/secrets.toml
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Databases corrupted files backups
+database/*.corrupted*
