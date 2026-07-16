@@ -1,0 +1,8 @@
+[
+    {
+        "email": "nandinirathlavath224@gmail.com",
+        "question": "how are you",
+        "answer": "\u26a0\ufe0f **API Key Missing**: The OpenAI API key is not configured. Please add it to the `.env` file or provide one under the **Settings** page.",
+        "time": "2026-07-15T06:49:10.237498"
+    }
+]

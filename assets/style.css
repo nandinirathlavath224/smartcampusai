@@ -1,0 +1,349 @@
+/* SmartCampusAI Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Apply Global Fonts & Custom Elements */
+html, body, [class*="css"] {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Custom CSS Variables for both Dark & Light Themes */
+:root {
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+    --accent-color: #ec4899;
+    
+    /* Background Gradients */
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    --card-gradient: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+    
+    /* Component styles */
+    --card-bg-dark: #1e293b;
+    --card-bg-light: #ffffff;
+    --border-dark: #334155;
+    --border-light: #e2e8f0;
+    
+    --text-dark: #f8fafc;
+    --text-light: #0f172a;
+    --text-muted-dark: #94a3b8;
+    --text-muted-light: #64748b;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseBorder {
+    0% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+    }
+}
+
+/* Page Container styling */
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #818cf8, #e0e7ff, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted-dark);
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Custom Cards Container */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Stat Cards */
+.stat-card {
+    background: var(--card-gradient);
+    border: 1px solid var(--border-dark);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.2), 0 4px 6px -2px rgba(99, 102, 241, 0.1);
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+}
+
+.stat-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+}
+
+.stat-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-top: 0.25rem;
+}
+
+/* Quick Actions Cards */
+.quick-actions-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+.action-card {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.7) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-dark);
+    border-radius: 14px;
+    padding: 1.25rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.action-card:hover {
+    border-color: #818cf8;
+    background: rgba(30, 41, 59, 0.9);
+    transform: scale(1.02);
+}
+
+.action-card-icon {
+    background: rgba(99, 102, 241, 0.15);
+    color: #818cf8;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.action-card-text {
+    flex-grow: 1;
+}
+
+.action-card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f8fafc;
+}
+
+.action-card-desc {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-top: 0.15rem;
+}
+
+/* Login/Register Card Container */
+.auth-wrapper {
+    max-width: 450px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-logo-placeholder {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.auth-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #a5b4fc 0%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.auth-subtitle {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-top: 0.25rem;
+}
+
+/* Custom Buttons styling via streamlit classes */
+div.stButton > button {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%) !important;
+    color: white !important;
+    border: none !important;
+    padding: 0.6rem 1.5rem !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.3) !important;
+    transition: all 0.2s ease-in-out !important;
+    width: 100%;
+}
+
+div.stButton > button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4) !important;
+    background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%) !important;
+}
+
+div.stButton > button:active {
+    transform: translateY(0px) !important;
+}
+
+/* Secondary/Alternative button style override if needed */
+.secondary-btn button {
+    background: transparent !important;
+    border: 1px solid var(--border-dark) !important;
+    color: var(--text-dark) !important;
+    box-shadow: none !important;
+}
+
+.secondary-btn button:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: #818cf8 !important;
+    color: #818cf8 !important;
+}
+
+/* Profile Photo Placeholder CSS */
+.profile-header-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.4) 100%);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-dark);
+    margin-bottom: 2rem;
+}
+
+.profile-avatar-large {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+.profile-header-text {
+    flex-grow: 1;
+}
+
+.profile-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #f8fafc;
+}
+
+.profile-role {
+    font-size: 0.95rem;
+    color: #818cf8;
+    font-weight: 500;
+}
+
+/* History Page styled boxes */
+.history-item {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid var(--border-dark);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.history-item:hover {
+    border-color: #4f46e5;
+}
+
+.history-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 0.25rem;
+}
+
+.history-q {
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-bottom: 0.5rem;
+}
+
+.history-a {
+    color: #cbd5e1;
+    font-size: 0.925rem;
+    line-height: 1.5;
+}
+
+/* Customize Streamlit alerts */
+.stAlert {
+    border-radius: 12px !important;
+    border: 1px solid transparent !important;
+}
+
+/* Sidebar Styling Overrides to integrate with streamlit option menu */
+.css-1cd4c07 {
+    background-color: #0f172a !important;
+}
